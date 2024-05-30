@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Telepizza",
+        "location": {
+            "city": "Barcelona",
+            "country": "Spain",
+            "environment": "Seaside"
+        },
+        "dishes": ["Pizza", "Steak", "Bread", "Soup"],
+        "specialty": "BBQ pizza",
+        "ambience": "average",
+        "nationality": "american",
+        "qualification": 1
+    },
+    {
+        "name": "Tagliatella",
+        "location": {
+            "city": "Mataro",
+            "country": "Spain",
+            "environment": "Centric"
+        },
+        "dishes": ["Lettuce", "Pasta", "Steak"],
+        "specialty": "Pasta alla marinera",
+        "ambience": "chill",
+        "nationality": "italian",
+        "qualification": 2
+    },
+    {
+        "name": "McDonalds",
+        "location": {
+            "city": "Mataro",
+            "country": "Spain",
+            "environment": "Mountain"
+        },
+        "dishes": ["Steak", "Fish", "Hamburger"],
+        "specialty": "Burger",
+        "ambience": "familiar",
+        "nationality": "american",
+        "qualification": 1
+    },
+    {
+        "name": "Pans",
+        "location": {
+            "city": "Rupit",
+            "country": "Spain",
+            "environment": "Village"
+        },
+        "dishes": ["Sandwich", "Nuggets", "Pizza"],
+        "specialty": "Veggie sandwich",
+        "ambience": "average",
+        "nationality": "french",
+        "qualification": 3
+    },
+    {
+        "name": "Giovesse",
+        "location": {
+            "city": "London",
+            "country": "UK",
+            "environment": "Centric"
+        },
+        "dishes": ["Pizza", "Tacos", "Sausages"],
+        "specialty": "Sausage roll",
+        "ambience": "fancy",
+        "nationality": "french",
+        "qualification": 4
+    },
+    {
+        "name": "Fosters",
+        "location": {
+            "city": "Barcares",
+            "country": "France",
+            "environment": "Village"
+        },
+        "dishes": ["Paella", "Chicken", "Sushi"],
+        "specialty": "Roasted wings",
+        "ambience": "country",
+        "nationality": "american",
+        "qualification": 3
+    }
+]
