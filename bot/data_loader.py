@@ -147,9 +147,9 @@ class DataLoader:
         
         return random.choice(restaurants)
 
-    def findRestaurantQualification(self, rest_name):
+    def findRestaurantQualification(self, rest_name, location_name):
         for restaurant in self.knowledge:
-            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(rest_name.lower()):
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(rest_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
                 return restaurant.getQualification()
         return "noQualityFound"
 
@@ -164,3 +164,9 @@ class DataLoader:
             return "noNationalityFound"
 
         return random.choice(restaurants)
+
+    def findRestaurantEnvironment(self, restaurant_name, location_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
+                return restaurant.getLocation().getEnvironment()
+        return "noEnvironmentFound"

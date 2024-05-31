@@ -8,6 +8,7 @@ ambienceResponses = ["Past customers described their ambience as %s ", "%s could
 specialtiesResponses = ["The star dishes in their top restaurants are: %s "]
 nationalityResponses = ["This restaurant is know from its %s dishes", "You should go to this restaurant if you want to try some %s dishes", "This is the most autenthic %s restaurant"]
 qualificationResponses = ["This restaurant has %s stars", "This restaurant has a %s stars rating.", "Customers have given this restaurant a %s stars rating."]
+environmentResponses = ["The restaurant has a %s environment", "Its environment is %s", "The %s environment is what you will find in the restaurant"]
 
 doNotUnderstandResponses = ["Sorry, I don't understand what you are asking", "Please, try to phrase the question in a different manner", "Reformulate the question using simple words, please"]
 
@@ -44,11 +45,34 @@ class BotRestaurant:
                 return False
         return True
 
+    def getKnownRestaurantFromInput(self, input):
+        for token in input:
+            if token in self.data_loader.restaurant_names:
+                return token
+        return None
+
+    def getKnownCityFromInput(self, input):
+        for token in input:
+            if token in self.data_loader.city_names:
+                return token
+        return None
+
+
     def routine(self, message):
         filtered_input_tokens = self.nlkt_utilities.filter_input_tokens(message.content)
 
-        for token in filtered_input_tokens:
+        restaurantInInput = self.getKnownRestaurantFromInput(filtered_input_tokens)
+        cityInInput = self.getKnownCityFromInput(filtered_input_tokens)
 
+        #Remove if it makes trouble
+        if restaurantInInput is not None:
+            self.remember[IND_REST] = restaurantInInput
+        if cityInInput is not None:
+            self.remember[IND_CITY] = cityInInput
+        #---
+
+        for token in filtered_input_tokens:
+            print("Token: " + token)
             if token in self.data_loader.restaurant_names or (self.isset(self.remember, IND_REST) and token not in self.data_loader.city_names and token not in self.data_loader.nacionalities_names and token != "restaur"):
                 print("Test1")
 
@@ -89,9 +113,21 @@ class BotRestaurant:
                 elif "qualif" in filtered_input_tokens:
                     self.remember[IND_QUALIF] = 1
                     self.remember = self.updateRemember(self.remember, IND_QUALIF)
-                    quali = self.data_loader.findRestaurantQualification(token)
-                    response = random.choice(qualificationResponses)
-                    return response % quali
+                    if self.isset(self.remember, IND_CITY):
+                        quali = self.data_loader.findRestaurantQualification(token, self.remember[IND_CITY])
+                        if quali == "noQualityFound":
+                            return "Could not find qualification of %s in %s" % (token, self.remember[IND_CITY])
+                        else:
+                            response = random.choice(qualificationResponses)
+                            return response % quali
+                elif "environ" in filtered_input_tokens:
+                    if self.isset(self.remember, IND_CITY):
+                        environ = self.data_loader.findRestaurantEnvironment(token, self.remember[IND_CITY])
+                        if environ == "noEnvironmentFound":
+                            return "Could not find environment of %s in %s" % (token, self.remember[IND_CITY])
+                        else:
+                            response = random.choice(environmentResponses)
+                            return response % environ
 
             elif token in self.data_loader.city_names or (self.isset(self.remember, IND_CITY) and token not in self.data_loader.nacionalities_names and token != "restaur"):
                 print("Entered")
@@ -112,6 +148,22 @@ class BotRestaurant:
                     specialties = self.data_loader.findSpecialties(token)
                     response = random.choice(specialtiesResponses)
                     return response % specialties
+                elif "environ" in filtered_input_tokens:
+                    if restaurantInInput is not None:
+                        environ = self.data_loader.findRestaurantEnvironment(restaurantInInput, token)
+                        if environ == "noEnvironmentFound":
+                            return "Could not find environment of %s in %s" % (restaurantInInput, token)
+                        else:
+                            response = random.choice(environmentResponses)
+                            return response % environ
+                elif "qualif" in filtered_input_tokens:
+                    if restaurantInInput is not None:
+                        quali = self.data_loader.findRestaurantQualification(restaurantInInput, token)
+                        if quali == "noQualityFound":
+                            return "Could not find qualification of %s in %s" % (restaurantInInput, token)
+                        else:
+                            response = random.choice(qualificationResponses)
+                            return response % quali
 
             elif token in self.data_loader.nacionalities_names:
                 print("Test2")
