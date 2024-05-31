@@ -87,6 +87,13 @@ class DataLoader:
                 unique_names.append(self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()))
         self.city_names = unique_names
 
+    def getOriginalUniqueCityNames(self):
+        unique_names = []
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) not in unique_names: #We avoid having duplicates in the list
+                unique_names.append(restaurant.getLocation().getCity())
+        return unique_names
+
     def findLocation(self, restaurant_name):
         for restaurant in self.knowledge:
             if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()):

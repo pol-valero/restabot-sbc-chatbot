@@ -10,7 +10,7 @@ data.loadData()
 
 botRestaurant = BotRestaurant(utilities, data)
 
-botRestaurantDiscord = DiscordBot(botRestaurant)
+botRestaurantDiscord = DiscordBot(botRestaurant, data)
 botRestaurantDiscord.run()
 
 #TODO: Create function to use terminal for interaction, just in case disc is not working. Also can be used to correct the project without using discord.
