@@ -93,9 +93,9 @@
     {
         "name": "Fosters",
         "location": {
-            "city": "Barcares",
-            "country": "France",
-            "environment": "Village"
+            "city": "Madrid",
+            "country": "Spain",
+            "environment": "Peripheral"
         },
         "dishes": ["Paella", "Chicken", "Sushi"],
         "specialty": "Roasted wings",

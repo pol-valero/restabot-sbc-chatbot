@@ -230,3 +230,14 @@ class DataLoader:
                 return restaurant.getDresscode()
         return "noDresscodeFound"
 
+    def stemmed_city_name_to_original(self, stemmed_city_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(stemmed_city_name):
+                return restaurant.getLocation().getCity()
+        return "noCityFound"
+
+    def stemmed_restaurant_name_to_original(self, stemmed_restaurant_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(stemmed_restaurant_name):
+                return restaurant.getName()
+        return "noRestaurantFound"

@@ -1,4 +1,6 @@
 import random
+from api_restaurant import ApiRestaurant
+from api_restaurant import BusinessApiInfo
 
 locationResponses = ["The restaurant is in %s", "Go to %s and you will find the restaurant", "It is located in %s"]
 dishesResponses = ["Some of the good dishes of the restaurant are: %s", "These are some of the dishes: %s", "Here is a list: %s"]
@@ -16,6 +18,7 @@ reviewResponses = ["The restaurant has the following critic review: %s", "The cr
 similarRestaurantResponses = ["You should try %s chain, it is similar to %s chain as it is also %s", "You might want to try %s chain, it is similar to %s chain, as it is also %s"]
 seeIfRestaurantFullResponses = ["The restaurant has a capacity of %s people and currently has %s people inside", "The restaurant can hold up to %s people, there are %s people inside"]
 dresscodeResponses = ["The dresscode of the restaurant %s is %s", "If you go to %s, you should use %s dresscode"]
+restaurantInfoResponse = "The restaurant %s has the following information: \n\nImage: %s\n\nIs closed: %s\n\nYelp website URL: %s\n\nAddress: %s\n\nPhone: %s"
 
 doNotUnderstandResponses = ["Sorry, I don't understand what you are asking", "Please, try to phrase the question in a different manner", "Reformulate the question using simple words, please"]
 
@@ -186,6 +189,16 @@ class BotRestaurant:
                         else:
                             response = random.choice(dresscodeResponses)
                             return response % (token, dresscode)
+                elif "inform" in filtered_input_tokens:
+                    if self.isset(self.remember, IND_CITY):
+                        city = self.data_loader.stemmed_city_name_to_original(self.remember[IND_CITY])
+                        restaurant = self.data_loader.stemmed_restaurant_name_to_original(token)
+                        businessApiInfo = ApiRestaurant().get_business_info(restaurant, city)
+                        if businessApiInfo is None:
+                            return "Could not find information of the restaurant %s in %s" % (restaurant, city)
+                        else:
+                            response = restaurantInfoResponse % (restaurant, businessApiInfo.image_url, businessApiInfo.is_closed, businessApiInfo.yelp_url, businessApiInfo.address, businessApiInfo.phone)
+                            return response
 
 
 

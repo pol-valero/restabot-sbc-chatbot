@@ -12,7 +12,7 @@ class DiscordBot:
         self.listOfCities = dataLoader.getOriginalUniqueCityNames()
 
         auxString = ("\n\nHello! I am RestaBot. Ask me any question you may have related to finding restaurants or knowing their food.\n\nCities where I have knowledge: %s"
-                     "\n\nExample questions: I want to go to a restaurant in X city. What is the specialty of X restaurant? Restaurants similar to X chain. Is X restaurant in X place full?..."
+                     "\n\nExample questions: I want to go to a restaurant in X city. What is the specialty of X restaurant? Restaurants similar to X chain. Is X restaurant in X place full? Show relevant information of X restaurant in X city..."
                      "\nOther restaurant knowledge: nationality, specialty, dishes, ambience, qualification, review, capacity, dresscode, environment...")
         self.init_message = auxString % self.listOfCities
 
