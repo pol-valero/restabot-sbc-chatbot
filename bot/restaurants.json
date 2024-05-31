@@ -10,7 +10,12 @@
         "specialty": "BBQ pizza",
         "ambience": "average",
         "nationality": "american",
-        "qualification": 1
+        "qualification": 1,
+        "criticReview": "The pizza was good",
+        "peopleCapacity": 100,
+        "peopleInside": 50,
+        "averagePrice": 10
+
     },
     {
         "name": "Tagliatella",
@@ -23,7 +28,11 @@
         "specialty": "Pasta alla marinera",
         "ambience": "chill",
         "nationality": "italian",
-        "qualification": 2
+        "qualification": 2,
+        "criticReview": "The pasta was good",
+        "peopleCapacity": 50,
+        "peopleInside": 30,
+        "averagePrice": 15
     },
     {
         "name": "McDonalds",
@@ -36,7 +45,11 @@
         "specialty": "Burger",
         "ambience": "familiar",
         "nationality": "american",
-        "qualification": 1
+        "qualification": 1,
+        "criticReview": "The burger was good",
+        "peopleCapacity": 200,
+        "peopleInside": 100,
+        "averagePrice": 5
     },
     {
         "name": "Pans",
@@ -49,7 +62,11 @@
         "specialty": "Veggie sandwich",
         "ambience": "average",
         "nationality": "french",
-        "qualification": 3
+        "qualification": 3,
+        "criticReview": "The sandwich was good",
+        "peopleCapacity": 30,
+        "peopleInside": 20,
+        "averagePrice": 7
     },
     {
         "name": "Giovesse",
@@ -62,7 +79,11 @@
         "specialty": "Sausage roll",
         "ambience": "fancy",
         "nationality": "french",
-        "qualification": 4
+        "qualification": 4,
+        "criticReview": "The sausage was good",
+        "peopleCapacity": 100,
+        "peopleInside": 52,
+        "averagePrice": 20
     },
     {
         "name": "Fosters",
@@ -75,6 +96,27 @@
         "specialty": "Roasted wings",
         "ambience": "country",
         "nationality": "american",
-        "qualification": 3
+        "qualification": 3,
+        "criticReview": "The wings were good",
+        "peopleCapacity": 60,
+        "peopleInside": 22,
+        "averagePrice": 15
+    },
+    {
+        "name": "Tagliatella",
+        "location": {
+            "city": "Escala",
+            "country": "Spain",
+            "environment": "Seaside"
+        },
+        "dishes": ["Lettuce", "Pasta", "Steak"],
+        "specialty": "Pasta alla marinera",
+        "ambience": "chill",
+        "nationality": "italian",
+        "qualification": 1,
+        "criticReview": "The pasta was not good",
+        "peopleCapacity": 50,
+        "peopleInside": 32,
+        "averagePrice": 15
     }
 ]

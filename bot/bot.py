@@ -9,6 +9,10 @@ specialtiesResponses = ["The star dishes in their top restaurants are: %s "]
 nationalityResponses = ["This restaurant is know from its %s dishes", "You should go to this restaurant if you want to try some %s dishes", "This is the most autenthic %s restaurant"]
 qualificationResponses = ["This restaurant has %s stars", "This restaurant has a %s stars rating.", "Customers have given this restaurant a %s stars rating."]
 environmentResponses = ["The restaurant has a %s environment", "Its environment is %s", "The %s environment is what you will find in the restaurant"]
+priceResponses = ["The average price of the restaurant is %s", "You can expect to pay %s in this restaurant", "The average price is %s"]
+numRestaurantResponses = ["There are %s restaurants of %s chain in the whole world", "More than %s restaurants of the %s chain can be found worldwide"]
+capacityResponses = ["The restaurant has a capacity of %s people", "The restaurant can hold up to %s people", "The capacity of the restaurant is %s people"]
+reviewResponses = ["The restaurant has the following critic review: %s", "The critic review of the restaurant is: %s", "Critics have given the restaurant a review of: %s"]
 
 doNotUnderstandResponses = ["Sorry, I don't understand what you are asking", "Please, try to phrase the question in a different manner", "Reformulate the question using simple words, please"]
 
@@ -128,6 +132,32 @@ class BotRestaurant:
                         else:
                             response = random.choice(environmentResponses)
                             return response % environ
+                elif "price" in filtered_input_tokens:
+                    price = self.data_loader.findPrice(token)
+                    response = random.choice(priceResponses)
+                    return response % price
+                elif "number" in filtered_input_tokens:
+                    numRestaurants = self.data_loader.findNumberOfSameChainRestaurants(token)
+                    response = random.choice(numRestaurantResponses)
+                    return response % (numRestaurants, token)
+                elif "capac" in filtered_input_tokens:
+                    if self.isset(self.remember, IND_CITY):
+                        capacity = self.data_loader.findCapacity(token, self.remember[IND_CITY])
+                        if capacity == "noCapacityFound":
+                            return "Could not find capacity of %s in %s" % (token, self.remember[IND_CITY])
+                        else:
+                            response = random.choice(capacityResponses)
+                            return response % (capacity)
+                elif "review" in filtered_input_tokens:
+                    if self.isset(self.remember, IND_CITY):
+                        review = self.data_loader.findReview(token, self.remember[IND_CITY])
+                        if review == "noReviewFound":
+                            return "Could not find review of %s in %s" % (token, self.remember[IND_CITY])
+                        else:
+                            response = random.choice(reviewResponses)
+                            return response % review
+
+
 
             elif token in self.data_loader.city_names or (self.isset(self.remember, IND_CITY) and token not in self.data_loader.nacionalities_names and token != "restaur"):
                 print("Entered")

@@ -1,5 +1,5 @@
 class Restaurant:
-  def __init__(self, name, location, dishes, specialty, ambience, nationality, qualification):
+  def __init__(self, name, location, dishes, specialty, ambience, nationality, qualification, criticReview, peopleCapacity, peopleInside, averagePrice):
       self.name = name
       self.specialty = specialty
       self.location = location
@@ -7,6 +7,10 @@ class Restaurant:
       self.ambience = ambience
       self.nationality = nationality
       self.qualification = qualification
+      self.criticReview = criticReview
+      self.peopleCapacity = peopleCapacity
+      self.peopleInside = peopleInside
+      self.averagePrice = averagePrice
 
   def getName(self):
       return self.name
@@ -28,6 +32,19 @@ class Restaurant:
 
   def getQualification(self):
       return self.qualification
+
+  def getCriticReview(self):
+    return self.criticReview
+
+  def getPeopleCapacity(self):
+    return self.peopleCapacity
+
+  def getPeopleInside(self):
+    return self.peopleInside
+
+  def getAveragePrice(self):
+    return self.averagePrice
+
 
 class Location:
 

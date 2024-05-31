@@ -29,7 +29,12 @@ class DataLoader:
                 specialty=item['specialty'],
                 ambience=item['ambience'],
                 nationality=item['nationality'],
-                qualification=item['qualification']
+                qualification=item['qualification'],
+                criticReview=item['criticReview'],
+                peopleCapacity=item['peopleCapacity'],
+                peopleInside=item['peopleInside'],
+                averagePrice=item['averagePrice']
+
             )
             restaurants.append(restaurant)
 
@@ -170,3 +175,28 @@ class DataLoader:
             if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
                 return restaurant.getLocation().getEnvironment()
         return "noEnvironmentFound"
+
+    def findPrice(self, restaurant_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()):
+                return restaurant.getAveragePrice()
+        return "noPriceFound"
+
+    def findNumberOfSameChainRestaurants(self, restaurant_name):
+        chain = 0
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()):
+                chain += 1
+        return chain
+
+    def findCapacity(self, restaurant_name, location_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
+                return restaurant.getPeopleCapacity()
+        return "noCapacityFound"
+
+    def findReview(self, restaurant_name, location_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
+                return restaurant.getCriticReview()
+        return "noReviewFound"
