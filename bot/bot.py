@@ -13,6 +13,9 @@ priceResponses = ["The average price of the restaurant is %s", "You can expect t
 numRestaurantResponses = ["There are %s restaurants of %s chain in the whole world", "More than %s restaurants of the %s chain can be found worldwide"]
 capacityResponses = ["The restaurant has a capacity of %s people", "The restaurant can hold up to %s people", "The capacity of the restaurant is %s people"]
 reviewResponses = ["The restaurant has the following critic review: %s", "The critic review of the restaurant is: %s", "Critics have given the restaurant a review of: %s"]
+similarRestaurantResponses = ["You should try %s chain, it is similar to %s chain as it is also %s", "You might want to try %s chain, it is similar to %s chain, as it is also %s"]
+seeIfRestaurantFullResponses = ["The restaurant has a capacity of %s people and currently has %s people inside", "The restaurant can hold up to %s people, there are %s people inside"]
+dresscodeResponses = ["The dresscode of the restaurant %s is %s", "If you go to %s, you should use %s dresscode"]
 
 doNotUnderstandResponses = ["Sorry, I don't understand what you are asking", "Please, try to phrase the question in a different manner", "Reformulate the question using simple words, please"]
 
@@ -156,6 +159,33 @@ class BotRestaurant:
                         else:
                             response = random.choice(reviewResponses)
                             return response % review
+                elif "similar" in filtered_input_tokens:
+                        similarRestaurants = self.data_loader.findSimilarRestaurantChain(token)
+
+                        if len(similarRestaurants) == 0:
+                            return "Could not find similar restaurants chain to %s" % token
+
+                        similarRestaurant = random.choice(similarRestaurants)
+
+                        response = random.choice(similarRestaurantResponses)
+                        return response % (similarRestaurant.getName(), token, similarRestaurant.getNationality())
+                elif "full" in filtered_input_tokens:
+                    if self.isset(self.remember, IND_CITY):
+                        capacity = self.data_loader.findCapacity(token, self.remember[IND_CITY])
+                        peopleInside = self.data_loader.findPeopleInside(token, self.remember[IND_CITY])
+                        if capacity == "noCapacityFound" or peopleInside == "noPeopleInsideFound":
+                            return "Could not find current capacity of the restaurant %s in %s" % (token, self.remember[IND_CITY])
+                        else:
+                            response = random.choice(seeIfRestaurantFullResponses)
+                            return response % (capacity, peopleInside)
+                elif "dresscod" in filtered_input_tokens:
+                    if self.isset(self.remember, IND_CITY):
+                        dresscode = self.data_loader.findDresscode(token, self.remember[IND_CITY])
+                        if dresscode == "noDresscodeFound":
+                            return "Could not find dresscode of the restaurant %s in %s" % (token, self.remember[IND_CITY])
+                        else:
+                            response = random.choice(dresscodeResponses)
+                            return response % (token, dresscode)
 
 
 
@@ -222,7 +252,5 @@ class BotRestaurant:
                     self.remember[IND_REST] = restaurant
                     response = random.choice(restaurantResponses)
                     return response % (restaurant, self.remember[IND_CITY])
-
-            #TODO: More if statements related to sentences containing "restaurant"
 
         return random.choice(doNotUnderstandResponses) #If we have not done any previous return, the message was not understood and we inform the user

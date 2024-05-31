@@ -33,8 +33,8 @@ class DataLoader:
                 criticReview=item['criticReview'],
                 peopleCapacity=item['peopleCapacity'],
                 peopleInside=item['peopleInside'],
-                averagePrice=item['averagePrice']
-
+                averagePrice=item['averagePrice'],
+                dresscode=item['dresscode']
             )
             restaurants.append(restaurant)
 
@@ -200,3 +200,26 @@ class DataLoader:
             if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
                 return restaurant.getCriticReview()
         return "noReviewFound"
+
+    def findSimilarRestaurantChain(self, restaurant_name):
+        chain = []
+
+        restaurant_nationality = self.findRestaurantNacionality(restaurant_name)
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getNationality().lower()) == self.nlkt_utilities.stem_word(restaurant_nationality) and self.nlkt_utilities.stem_word(restaurant.getName().lower()) != self.nlkt_utilities.stem_word(restaurant_name.lower()):
+                chain.append(restaurant)
+
+        return chain
+
+    def findPeopleInside(self, restaurant_name, location_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
+                return restaurant.getPeopleInside()
+        return "noPeopleInsideFound"
+
+    def findDresscode(self, restaurant_name, location_name):
+        for restaurant in self.knowledge:
+            if self.nlkt_utilities.stem_word(restaurant.getName().lower()) == self.nlkt_utilities.stem_word(restaurant_name.lower()) and self.nlkt_utilities.stem_word(restaurant.getLocation().getCity().lower()) == self.nlkt_utilities.stem_word(location_name):
+                return restaurant.getDresscode()
+        return "noDresscodeFound"
+

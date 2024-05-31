@@ -2,7 +2,7 @@ import discord
 
 TOKEN = 'MTI0MzU5Mzg2MjI0MTQ1MjA1Mg.Grmwu1.ZmvpT_VVxLExGSefKWh4cesM0o3bOMzIb0DGZA'
 
-init_message = 'Hello! I am RestaBot. Ask me any question you may have related to finding restaurants or knowing their food.'
+init_message = 'Hello! I am RestaBot. Ask me any question you may have related to finding restaurants or knowing their food.\n\nCities where I have knowledge: '
 
 class DiscordBot:
     def __init__(self, bot):

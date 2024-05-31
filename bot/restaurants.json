@@ -14,7 +14,8 @@
         "criticReview": "The pizza was good",
         "peopleCapacity": 100,
         "peopleInside": 50,
-        "averagePrice": 10
+        "averagePrice": 10,
+        "dresscode": "casual"
 
     },
     {
@@ -32,7 +33,8 @@
         "criticReview": "The pasta was good",
         "peopleCapacity": 50,
         "peopleInside": 30,
-        "averagePrice": 15
+        "averagePrice": 15,
+        "dresscode": "formal"
     },
     {
         "name": "McDonalds",
@@ -49,7 +51,8 @@
         "criticReview": "The burger was good",
         "peopleCapacity": 200,
         "peopleInside": 100,
-        "averagePrice": 5
+        "averagePrice": 5,
+        "dresscode": "very casual"
     },
     {
         "name": "Pans",
@@ -66,7 +69,8 @@
         "criticReview": "The sandwich was good",
         "peopleCapacity": 30,
         "peopleInside": 20,
-        "averagePrice": 7
+        "averagePrice": 7,
+        "dresscode": "casual"
     },
     {
         "name": "Giovesse",
@@ -83,7 +87,8 @@
         "criticReview": "The sausage was good",
         "peopleCapacity": 100,
         "peopleInside": 52,
-        "averagePrice": 20
+        "averagePrice": 20,
+        "dresscode": "very formal"
     },
     {
         "name": "Fosters",
@@ -100,7 +105,8 @@
         "criticReview": "The wings were good",
         "peopleCapacity": 60,
         "peopleInside": 22,
-        "averagePrice": 15
+        "averagePrice": 15,
+        "dresscode": "casual"
     },
     {
         "name": "Tagliatella",
@@ -117,6 +123,7 @@
         "criticReview": "The pasta was not good",
         "peopleCapacity": 50,
         "peopleInside": 32,
-        "averagePrice": 15
+        "averagePrice": 15,
+        "dresscode": "formal"
     }
 ]
