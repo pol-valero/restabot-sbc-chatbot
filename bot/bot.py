@@ -85,9 +85,7 @@ class BotRestaurant:
         #---
 
         for token in filtered_input_tokens:
-            print("Token: " + token)
             if token in self.data_loader.restaurant_names or (self.isset(self.remember, IND_REST) and token not in self.data_loader.city_names and token not in self.data_loader.nacionalities_names and token != "restaur"):
-                print("Test1")
 
                 if token in self.data_loader.restaurant_names:
                     self.remember[IND_REST] = token
@@ -204,13 +202,10 @@ class BotRestaurant:
                             return response
 
             elif token in self.data_loader.city_names or (self.isset(self.remember, IND_CITY) and token not in self.data_loader.nacionalities_names and token != "restaur"):
-                print("Entered")
                 #or any(filtered_input_tokens) == any(self.data_loader.city_names)
                 if token in self.data_loader.city_names:
-                    print("Entered1")
                     self.remember[IND_CITY] = token
                 else:
-                    print("Entered2")
 
                     token = self.remember[IND_CITY]
                 if "restaur" in filtered_input_tokens:
@@ -240,7 +235,6 @@ class BotRestaurant:
                             return response % quali
 
             elif token in self.data_loader.nacionalities_names:
-                print("Test2")
                 if token in self.data_loader.nacionalities_names:
                     self.remember[IND_NAT] = token
                 else:
@@ -249,12 +243,10 @@ class BotRestaurant:
                     restaurant = self.data_loader.findNationalityRestaurant(token)
                     self.remember[IND_REST] = restaurant
                     response = random.choice(restaurantResponses)
-                    print("Restaurant: " + restaurant)
                     return response % (restaurant, self.data_loader.findLocation(restaurant))
 
             #special case for when the user asks for "other restaurants" without specifying a location (so we use the last remembered location)
             elif token == "restaur" and self.isset(self.remember, IND_CITY):
-                print("Test3")
 
                 otherKnownTokenFound = 0
                 for token in filtered_input_tokens:

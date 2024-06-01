@@ -36,7 +36,6 @@ class ApiRestaurant:
         }
         response = requests.get(url, headers=headers, params=params)
         data = response.json()
-        print(response.json())
         businesses = data.get('businesses')
         if businesses:
             self.business_id = businesses[0]['id']
