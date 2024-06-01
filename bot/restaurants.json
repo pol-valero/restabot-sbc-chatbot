@@ -6,7 +6,7 @@
             "country": "Spain",
             "environment": "Seaside"
         },
-        "dishes": ["Pizza", "Steak", "Bread", "Soup"],
+        "dishes": ["Pizza", "Grilled Steak", "Garlic Bread", "Tomato Soup"],
         "specialty": "BBQ pizza",
         "ambience": "average",
         "nationality": "american",
@@ -16,7 +16,6 @@
         "peopleInside": 50,
         "averagePrice": 10,
         "dresscode": "casual"
-
     },
     {
         "name": "Tagliatella",
@@ -25,7 +24,7 @@
             "country": "Spain",
             "environment": "Centric"
         },
-        "dishes": ["Lettuce", "Pasta", "Steak"],
+        "dishes": ["Caesar Salad", "Pasta Carbonara", "Ribeye Steak"],
         "specialty": "Pasta alla marinera",
         "ambience": "chill",
         "nationality": "italian",
@@ -43,8 +42,8 @@
             "country": "Spain",
             "environment": "Mountain"
         },
-        "dishes": ["Steak", "Fish", "Hamburger"],
-        "specialty": "Burger",
+        "dishes": ["Chips", "Fish Fillet", "Cheeseburger"],
+        "specialty": "Big Mac",
         "ambience": "familiar",
         "nationality": "american",
         "qualification": 1,
@@ -61,7 +60,7 @@
             "country": "Spain",
             "environment": "Village"
         },
-        "dishes": ["Sandwich", "Nuggets", "Pizza"],
+        "dishes": ["Ham Sandwich", "Chicken Nuggets", "Margherita Pizza"],
         "specialty": "Veggie sandwich",
         "ambience": "average",
         "nationality": "french",
@@ -79,7 +78,7 @@
             "country": "UK",
             "environment": "Centric"
         },
-        "dishes": ["Pizza", "Tacos", "Sausages"],
+        "dishes": ["Pepperoni Pizza", "Beef Tacos", "Sausage Platter"],
         "specialty": "Sausage roll",
         "ambience": "fancy",
         "nationality": "french",
@@ -97,7 +96,7 @@
             "country": "Spain",
             "environment": "Peripheral"
         },
-        "dishes": ["Paella", "Chicken", "Sushi"],
+        "dishes": ["Seafood Paella", "Grilled Chicken", "California Roll"],
         "specialty": "Roasted wings",
         "ambience": "country",
         "nationality": "american",
@@ -109,21 +108,255 @@
         "dresscode": "casual"
     },
     {
-        "name": "Tagliatella",
+        "name": "Taj Mahal",
         "location": {
-            "city": "Escala",
+            "city": "Barcelona",
             "country": "Spain",
+            "environment": "Urban"
+        },
+        "dishes": ["Chicken Curry", "Lamb Biryani", "Garlic Naan"],
+        "specialty": "Chicken Tikka Masala",
+        "ambience": "spicy",
+        "nationality": "indian",
+        "qualification": 5,
+        "criticReview": "The curry was excellent",
+        "peopleCapacity": 70,
+        "peopleInside": 55,
+        "averagePrice": 12,
+        "dresscode": "casual"
+    },
+    {
+        "name": "Sushi Zen",
+        "location": {
+            "city": "Madrid",
+            "country": "Spain",
+            "environment": "Centric"
+        },
+        "dishes": ["Sushi", "Ramen", "Tempura", "Miso Soup"],
+        "specialty": "Dragon Roll",
+        "ambience": "zen",
+        "nationality": "japanese",
+        "qualification": 4,
+        "criticReview": "The sushi was fresh",
+        "peopleCapacity": 80,
+        "peopleInside": 60,
+        "averagePrice": 18,
+        "dresscode": "smart casual"
+    },
+    {
+        "name": "Greek Taverna",
+        "location": {
+            "city": "Seville",
+            "country": "Spain",
+            "environment": "Urban"
+        },
+        "dishes": ["Gyros", "Moussaka", "Baklava"],
+        "specialty": "Souvlaki",
+        "ambience": "fun",
+        "nationality": "greek",
+        "qualification": 3,
+        "criticReview": "The moussaka was hearty",
+        "peopleCapacity": 50,
+        "peopleInside": 35,
+        "averagePrice": 14,
+        "dresscode": "casual"
+    },
+    {
+        "name": "La Parrilla",
+        "location": {
+            "city": "Buenos Aires",
+            "country": "Argentina",
+            "environment": "Centric"
+        },
+        "dishes": ["Grilled Steak", "Beef Empanadas", "Chimichurri Sauce"],
+        "specialty": "Asado",
+        "ambience": "rustic",
+        "nationality": "argentinian",
+        "qualification": 4,
+        "criticReview": "The steak was perfectly cooked",
+        "peopleCapacity": 90,
+        "peopleInside": 60,
+        "averagePrice": 20,
+        "dresscode": "smart casual"
+    },
+    {
+        "name": "Le Bistro",
+        "location": {
+            "city": "Paris",
+            "country": "France",
+            "environment": "Centric"
+        },
+        "dishes": ["Croissants", "Escargot", "Boeuf Bourguignon"],
+        "specialty": "Duck Confit",
+        "ambience": "romantic",
+        "nationality": "french",
+        "qualification": 5,
+        "criticReview": "The duck confit was exquisite",
+        "peopleCapacity": 40,
+        "peopleInside": 28,
+        "averagePrice": 25,
+        "dresscode": "formal"
+    },
+    {
+        "name": "Trattoria Bella",
+        "location": {
+            "city": "Rome",
+            "country": "Italy",
+            "environment": "Historic"
+        },
+        "dishes": ["Pasta", "Margherita Pizza", "Tiramisu"],
+        "specialty": "Lasagna",
+        "ambience": "cozy",
+        "nationality": "italian",
+        "qualification": 5,
+        "criticReview": "The lasagna was rich and flavorful",
+        "peopleCapacity": 60,
+        "peopleInside": 45,
+        "averagePrice": 18,
+        "dresscode": "casual"
+    },
+    {
+        "name": "Dragon Wok",
+        "location": {
+            "city": "Beijing",
+            "country": "China",
+            "environment": "Urban"
+        },
+        "dishes": ["Pork Dumplings", "Kung Pao Chicken", "Spring Rolls"],
+        "specialty": "Peking Duck",
+        "ambience": "traditional",
+        "nationality": "chinese",
+        "qualification": 4,
+        "criticReview": "The Peking duck was superb",
+        "peopleCapacity": 100,
+        "peopleInside": 70,
+        "averagePrice": 22,
+        "dresscode": "smart casual"
+    },
+    {
+        "name": "El Mexicano",
+        "location": {
+            "city": "Mexico City",
+            "country": "Mexico",
+            "environment": "Urban"
+        },
+        "dishes": ["Tacos", "Enchiladas", "Churros"],
+        "specialty": "Carnitas Tacos",
+        "ambience": "lively",
+        "nationality": "mexican",
+        "qualification": 3,
+        "criticReview": "The carnitas were flavorful",
+        "peopleCapacity": 80,
+        "peopleInside": 60,
+        "averagePrice": 10,
+        "dresscode": "casual"
+    },
+    {
+        "name": "Bella Napoli",
+        "location": {
+            "city": "Naples",
+            "country": "Italy",
             "environment": "Seaside"
         },
-        "dishes": ["Lettuce", "Pasta", "Steak"],
-        "specialty": "Pasta alla marinera",
-        "ambience": "chill",
+        "dishes": ["Neapolitan Pizza", "Caprese Salad", "Gelato"],
+        "specialty": "Neapolitan Pizza",
+        "ambience": "beachy",
         "nationality": "italian",
-        "qualification": 1,
-        "criticReview": "The pasta was not good",
-        "peopleCapacity": 50,
-        "peopleInside": 32,
+        "qualification": 5,
+        "criticReview": "The pizza was authentic and delicious",
+        "peopleCapacity": 60,
+        "peopleInside": 45,
         "averagePrice": 15,
+        "dresscode": "beach attire"
+    },
+    {
+        "name": "Sakura Blossom",
+        "location": {
+            "city": "Tokyo",
+            "country": "Japan",
+            "environment": "Urban"
+        },
+        "dishes": ["Sushi", "Tempura", "Matcha Ice Cream"],
+        "specialty": "Omakase",
+        "ambience": "minimalist",
+        "nationality": "japanese",
+        "qualification": 5,
+        "criticReview": "The omakase experience was exceptional",
+        "peopleCapacity": 50,
+        "peopleInside": 40,
+        "averagePrice": 30,
         "dresscode": "formal"
+    },
+    {
+        "name": "Curry House",
+        "location": {
+            "city": "Mumbai",
+            "country": "India",
+            "environment": "Urban"
+        },
+        "dishes": ["Butter Chicken", "Paneer Tikka", "Gulab Jamun"],
+        "specialty": "Butter Chicken",
+        "ambience": "vibrant",
+        "nationality": "indian",
+        "qualification": 4,
+        "criticReview": "The butter chicken was creamy and flavorful",
+        "peopleCapacity": 70,
+        "peopleInside": 50,
+        "averagePrice": 12,
+        "dresscode": "casual"
+    },
+    {
+        "name": "The Olive Grove",
+        "location": {
+            "city": "Athens",
+            "country": "Greece",
+            "environment": "Historic"
+        },
+        "dishes": ["Greek Salad", "Lamb Kebab", "Spanakopita"],
+        "specialty": "Moussaka",
+        "ambience": "rustic",
+        "nationality": "greek",
+        "qualification": 4,
+        "criticReview": "The moussaka was rich and flavorful",
+        "peopleCapacity": 60,
+        "peopleInside": 45,
+        "averagePrice": 14,
+        "dresscode": "smart casual"
+    },
+    {
+        "name": "Brazilian Steakhouse",
+        "location": {
+            "city": "Rio de Janeiro",
+            "country": "Brazil",
+            "environment": "Seaside"
+        },
+        "dishes": ["Grilled Meats", "Feijoada", "Pão de Queijo"],
+        "specialty": "Churrasco",
+        "ambience": "festive",
+        "nationality": "brazilian",
+        "qualification": 5,
+        "criticReview": "The churrasco was tender and flavorful",
+        "peopleCapacity": 80,
+        "peopleInside": 60,
+        "averagePrice": 20,
+        "dresscode": "casual"
+    },
+    {
+        "name": "Tapas Bar",
+        "location": {
+            "city": "Barcelona",
+            "country": "Spain",
+            "environment": "Urban"
+        },
+        "dishes": ["Patatas Bravas", "Gambas al Ajillo", "Jamón Ibérico"],
+        "specialty": "Paella",
+        "ambience": "lively",
+        "nationality": "spanish",
+        "qualification": 4,
+        "criticReview": "The paella was delicious and well-prepared",
+        "peopleCapacity": 100,
+        "peopleInside": 70,
+        "averagePrice": 18,
+        "dresscode": "casual"
     }
 ]

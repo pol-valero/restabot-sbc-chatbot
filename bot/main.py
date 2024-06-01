@@ -12,15 +12,15 @@ botRestaurant = BotRestaurant(utilities, data)
 
 #----------UNCOMMENT TO RUN BOT IN COMPUTER TERMINAL. COMMENT TO RUN BOT IN DISCORD---------
 
-botRestaurant.executeInTerminal()
+#botRestaurant.executeInTerminal()
 
 #-------------------------------------------------------------------------------------------
 
 
 #----------UNCOMMENT TO RUN BOT IN DISCORD. COMMENT TO RUN BOT IN COMPUTER TERMINAL---------
 
-#botRestaurantDiscord = DiscordBot(botRestaurant, data)
-#botRestaurantDiscord.run()
+botRestaurantDiscord = DiscordBot(botRestaurant, data)
+botRestaurantDiscord.run()
 
 #-------------------------------------------------------------------------------------------
 

@@ -25,7 +25,7 @@ class DiscordBot:
         async def on_message(message):
             if message.author == self.client.user:
                 return
-            
+
             await message.channel.send(self.bot.routine(message))
 
     def run(self):
