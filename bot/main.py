@@ -10,7 +10,17 @@ data.loadData()
 
 botRestaurant = BotRestaurant(utilities, data)
 
-botRestaurantDiscord = DiscordBot(botRestaurant, data)
-botRestaurantDiscord.run()
+#----------UNCOMMENT TO RUN BOT IN COMPUTER TERMINAL. COMMENT TO RUN BOT IN DISCORD---------
 
-#TODO: Create function to use terminal for interaction, just in case disc is not working. Also can be used to correct the project without using discord.
+botRestaurant.executeInTerminal()
+
+#-------------------------------------------------------------------------------------------
+
+
+#----------UNCOMMENT TO RUN BOT IN DISCORD. COMMENT TO RUN BOT IN COMPUTER TERMINAL---------
+
+#botRestaurantDiscord = DiscordBot(botRestaurant, data)
+#botRestaurantDiscord.run()
+
+#-------------------------------------------------------------------------------------------
+

@@ -32,6 +32,9 @@ IND_QUALIF = 6
 IND_CITY = 7
 IND_NAT = 8
 
+class Message:
+    content = ""
+
 class BotRestaurant:
     remember = [None] * 9
 
@@ -200,8 +203,6 @@ class BotRestaurant:
                             response = restaurantInfoResponse % (restaurant, businessApiInfo.image_url, businessApiInfo.is_closed, businessApiInfo.yelp_url, businessApiInfo.address, businessApiInfo.phone)
                             return response
 
-
-
             elif token in self.data_loader.city_names or (self.isset(self.remember, IND_CITY) and token not in self.data_loader.nacionalities_names and token != "restaur"):
                 print("Entered")
                 #or any(filtered_input_tokens) == any(self.data_loader.city_names)
@@ -267,3 +268,17 @@ class BotRestaurant:
                     return response % (restaurant, self.remember[IND_CITY])
 
         return random.choice(doNotUnderstandResponses) #If we have not done any previous return, the message was not understood and we inform the user
+
+    def executeInTerminal(self):
+        print("Hello! I am RestaBot. Ask me any question you may have related to finding restaurants or knowing their food.")
+        print("Cities where I have knowledge: %s" % self.data_loader.getOriginalUniqueCityNames())
+        print("Example questions: I want to go to a restaurant in X city. What is the specialty of X restaurant? Restaurants similar to X chain. Is X restaurant in X place full? Show relevant information of X restaurant in X city...")
+        print("Other restaurant knowledge: nationality, specialty, dishes, ambience, qualification, review, capacity, dresscode, environment...")
+
+        while True:
+            print("\n")
+            inputString = input("Enter your question: ")
+            message = Message()
+            message.content = inputString
+            print(self.routine(message))
+
