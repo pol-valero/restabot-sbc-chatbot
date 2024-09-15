@@ -1,5 +1,8 @@
-RestaBot, created by: Alex Liu, Pol Valero, Carles Contreras, Victoria Ortiz
+## RestaBot
 
+Restabot is a chatbot that helps you choose the restaurant that best fits your current needs. It integrates with the Discord API to use its UI and with the Yelp API to gather updated information about the restaurants. 
+
+### Instructions
 In order to build and execute the project, we have used the IDE "PyCharm" with the Python version 3.9 and the following libraries imported:
 -requests
 -random
@@ -44,3 +47,13 @@ What is the location of McDonalds?
 Information of Mcdonalds?
 
 *Instead of the provided city and restaurant names, you can use any other city or restaurant name that you want to ask about and exists in the .json file that has the main "base de coneixement"
+
+### Authors
+
+[Pol Valero] (https://github.com/pol-valero)
+
+[Alex Liu] (https://github.com/Alello23)
+
+[Carles Contreras]
+
+[Victoria Ortiz]
